@@ -20,8 +20,17 @@ module keyStem(o = 8.22, i = 7, h = 19.2,b = 0.75, bw=2.6, bh=2.3, s = 1.75, m =
 
 	translate([o/2,o/2,m])
 	rotate([0,0,90])
-		splitBar(l=i, w=bw/2,h=mt*2);
+		splitBar(l=i, w=s,h=mt*2);
+
+	// Extra lip for added strength
+	translate([-1/2,-1/2,h])
+		topLip(o,i,1,1);
 }}
+
+module topLip(o=10,i=9,lw=1, lh =1)
+{
+	squareTube(i=i,o=o+lw,h=lh);
+}
 
 module lockingTab(s = 50,b = 1, w = 3, h=3)
 {union () {
