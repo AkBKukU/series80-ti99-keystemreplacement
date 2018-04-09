@@ -1,19 +1,25 @@
 module keyStem(o = 8.22, i = 7, h = 19.2,b = 0.75, bw=2.6, bh=2.3, s = 1.75, m = 10, mt = 1.25 )
 {union() {
-	squareTube(o=o,i=i,h=h);
+	difference() {
+		squareTube(o=o,i=i,h=h);
+		translate([o/2-bw/2-(o-i)/2,-o,-h])
+			cube([(o-i)/2,o*3,h+m-mt]);
+		translate([o/2+bw/2,-o,-h])
+			cube([(o-i)/2,o*3,h+m-mt]);
+	}
 
 	translate([o/2,-b/2,bh/2])
-	lockingTab(b*3,b,bw,bh);
+		lockingTab(b*3,b,bw,bh);
 
 	translate([o/2,o+b/2,bh/2])
 	rotate([0,0,180])
-	lockingTab(b*3,b,bw,bh);
+		lockingTab(b*3,b,bw,bh);
 
 	translate([o/2,o/2,m-mt/2])
-	innerCorners(o=i, i=o-2,h=mt);
+		innerCorners(o=i, i=o-2,h=mt);
 
 	translate([o/2,o/2,m])
-	splitBar(l=i, w=bw/2,h=mt*2);
+		splitBar(l=i, w=bw/2,h=mt*2);
 }}
 
 module lockingTab(s = 50,b = 1, w = 3, h=3)
