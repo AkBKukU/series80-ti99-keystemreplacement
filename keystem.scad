@@ -19,6 +19,7 @@ module keyStem(o = 8.22, i = 7, h = 19.2,b = 0.75, bw=2.6, bh=2.3, s = 1.75, m =
 		innerCorners(o=i, i=o-2,h=mt);
 
 	translate([o/2,o/2,m])
+	rotate([0,0,90])
 		splitBar(l=i, w=bw/2,h=mt*2);
 }}
 
