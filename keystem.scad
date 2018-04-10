@@ -4,8 +4,8 @@ module keyStem(o = 8.22, i = 7, h = 19.2,b = 0.75, bw=2.6, bh=2.3, s = 1.75, m =
 		squareTube(o=o,i=i,h=h);
 		translate([o/2-bw/2-(o-i)/2,-o,-h])
 			cube([(o-i)/2,o*3,h+m-mt]);
-		translate([o/2+bw/2,-o,-h])
-			cube([(o-i)/2,o*3,h+m-mt]);
+		//translate([o/2+bw/2,-o,-h])
+		//	cube([(o-i)/2,o*3,h+m-mt]);
 	}
 
 	translate([o/2,-b/2,bh/2])
@@ -34,8 +34,12 @@ module topLip(o=10,i=9,lw=1, lh =1)
 
 module lockingTab(s = 50,b = 1, w = 3, h=3)
 {union () {
-	translate([-w/2,-b/2,0])
-	cube([w,b,h/2]);
+	// Top Removable wedge
+	shape_wedge(x1=w,y1=b,z=h/2,x2=w,y2=0.1,x2p = 1,y2p = 1);
+
+	// Bottom removal only top cube
+	//translate([-w/2,-b/2,0])
+		//cube([w,b,h/2]);
 
 	rotate([0,180,0])
 	//translate([0,-s,0])
