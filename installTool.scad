@@ -1,14 +1,18 @@
-module splitWedge(w=3,l=30,h=1.5)
+module splitWedge(w=3,l=30,h=1.2)
 {
-	shape_wedge(w,l,h,w,0.1,1,1);
-	
+	shape_wedge(w,10,h,w,0.1,1,1);
+
+	translate([0,10,0])
+	rotate([0,0,180])
+	shape_wedge(w,10,h,w,0.1,1,1);
+
 	translate([0,30,0])
 	rotate([0,0,180])
-	shape_wedge(w,l,h,w,0.1,1,1);
+	shape_wedge(w,50,0.75,w,0.1,1,1);
 }
 
 
-module shape_wedge(x1,y1,z,x2,y2,x2p = 0.5,y2p = 0.5) 
+module shape_wedge(x1,y1,z,x2,y2,x2p = 0.5,y2p = 0.5)
 {
 	x = (x1-x2) * (x2p - 0.5);
 	y = (y1-y2) * (y2p - 0.5);
@@ -22,7 +26,7 @@ module shape_wedge(x1,y1,z,x2,y2,x2p = 0.5,y2p = 0.5)
 		[(x2)/2+x,-(y2)/2+y,z], // 5
 		[-(x2)/2+x,-(y2)/2+y,z],// 6
 		[-(x2)/2+x,(y2)/2+y,z], // 7
-	]; 
+	];
 
 	faces = [
 		[3,2,1,0],
