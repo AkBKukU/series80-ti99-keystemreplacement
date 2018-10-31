@@ -1,7 +1,7 @@
 outside=8.22;
 inside=7;
 height=19.2;
-latch_bite=0.5;
+latch_bite=0.65;
 latch_width=2.6;
 latch_height=2.3;
 split_width=1.75;
