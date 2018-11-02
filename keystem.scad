@@ -27,7 +27,7 @@ module keyStem(o = 8.22, i = 7, h = 19.2,b = 0.5, bw=2.6, bh=2.3, s = 1.75, m = 
 			innerCorners(o=i, i=o-2,h=mt);
 
 		translate([(o-i)/2,(o-i)/2,m-mt])
-			squareTube(o=i,i=i-0.5,h=mt);
+			squareTube(o=i,i=i-0.5,h=mt*1.5);
 
 		translate([o/2,o/2,m])
 		rotate([0,0,90])
